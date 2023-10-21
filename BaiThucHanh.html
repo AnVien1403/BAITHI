@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tab .tablinks {
+            outline: none;
+            border: none;
+            overflow: hidden;
+        }
+
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+
+        .topright {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .topright:hover {
+            color: red;
+        }
+
+        Center {
+            height: 30px;
+        }
+
+        .row {
+            width: 100%;
+            height: 100%;
+        }
+
+        .row td {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        td img {
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            float: left;
+            margin-left: 3%;
+        }
+
+        .job_infor,
+        td b {
+            width: 89%;
+            float: right;
+        }
+
+        table {
+            margin: 0 !important;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Rome')">Rome<span
+                onclick="this.parentElement.style.display='none'">&times</span></button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')" id="defaultOpen">Paris<span
+                onclick="this.parentElement.style.display='none'">&times</span></button>
+        <button class="tablinks" onclick="openCity(event, 'London')">London<span
+                onclick="this.parentElement.style.display='none'">&times</span></button>
+    </div>
+
+    <div id="Rome" class="tabcontent">
+
+        <h3>Rome</h3>
+        <p>Rome is the capital city of Itali.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <div ng-app="" ng-init="names=[
+        {name:'Robert King',Job:'Team lead'}]">
+            <table class="table" ng-repeat="x in names">
+                <tr class="row">
+                    <Center><b>Employee Info</b></Center>
+                    <td>
+                        <img src="data:image/webp;base64,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"
+                            alt="">
+                        <b>{{ x.name }}<br></b>
+                        <p class="job_infor">{{x.Job }}</p>
+                    </td>
+
+                </tr>
+            </table>
+            <div ng-app="" ng-init="names1=[
+            {name:'Michael Suyama',Job:'Developer'}]">
+                <table class="table" ng-repeat="y in names1">
+                    <tr class="row">
+                        <td>
+                            <img src="https://wpticketent.emdplugins.com/media/2015/02/nineteen.png" alt="">
+                            <b>{{ y.name }}<br></b>
+                            <p class="job_infor">{{y.Job }}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-app="" ng-init="names2=[
+            {name:'Margaret Peacock',Job:'Developer'}]">
+                <table class="table" ng-repeat="z in names2">
+                    <tr class="row">
+                        <td>
+                            <img src="https://media.licdn.com/dms/image/D4D03AQHTYanm5rmy1g/profile-displayphoto-shrink_800_800/0/1665587132406?e=2147483647&v=beta&t=o6q-p0L8v_gJ63FsECkprUhaJ5Pbl0hoZWb4rLr71iw"
+                                alt="">
+                            <b>{{ z.name }}<br></b>
+                            <p class="job_infor">{{z.Job }}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="London" class="tabcontent">
+
+        <h3>London</h3>
+        <p>London is the capital of England.</p>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+
+
+</body>
+
+</html>
